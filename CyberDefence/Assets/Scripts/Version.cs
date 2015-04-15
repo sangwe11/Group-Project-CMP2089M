@@ -4,7 +4,6 @@ using System.Collections;
 public class Version : MonoBehaviour {
 
 	void OnGUI(){
-
 		// Get label style and center
 		var centeredStyle = new GUIStyle(GUI.skin.label);
 		centeredStyle.alignment = TextAnchor.MiddleCenter;

@@ -22,6 +22,9 @@ public class SpawnManager : MonoBehaviour {
 	
 	public PathTD defaultPath;
 	private List<Vector3> waypoints;
+
+	public List<string> enemyDescriptions;
+	public List<Texture2D> enemyIcons;
 	
 	public Wave[] waves=new Wave[1];
 	
@@ -33,7 +36,10 @@ public class SpawnManager : MonoBehaviour {
 	
 	static private SpawnManager spawnManager;
 	
-	private int totalSpawnCount=0;
+	public int totalSpawnCount=0;
+
+	private bool showEnemyDescription = false;
+	private int enemyId;
 	
 	void Awake(){
 		spawnManager=this;
@@ -182,9 +188,68 @@ public class SpawnManager : MonoBehaviour {
 		}
 		
 		StartCoroutine(CheckSpawn(currentWave));
+
+		//waves[currentWave].subWaves[waves[currentWave].subWaves.Length - 1].unit.GetComponent<UnitCreep>().
+
+		Invoke ("ShowEnemyDescription", 1.0f);
 		
 		currentWave+=1;
 		if(onWaveStartSpawnE!=null) onWaveStartSpawnE(currentWave+1);
+	}
+
+	void ShowEnemyDescription()
+	{
+		if (enemyDescriptions.Count >= currentWave){
+			showEnemyDescription = true;
+			enemyId = currentWave - 1;
+			Time.timeScale = 0;
+		}
+	}
+
+	void HideEnemyDescription()
+	{
+		showEnemyDescription = false;
+		Time.timeScale=1;
+	}
+
+	private Texture2D makeTextureFromColor(int width, int height, Color color)
+	{
+		Color[] pixels = new Color[width * height];
+
+		for (int i = 0; i < pixels.Length; ++i)
+		{
+			pixels[i] = color;
+		}
+
+		Texture2D texture = new Texture2D (width, height);
+		texture.SetPixels (pixels);
+		texture.Apply ();
+		return texture;
+	}
+
+	void OnGUI()
+	{
+		if (showEnemyDescription) {
+
+			int halfScreenWidth = Screen.width / 2;
+			int halfScreenHeight = Screen.height / 2;
+
+			var boxStyle = new GUIStyle(GUI.skin.box);
+			boxStyle.normal.background = makeTextureFromColor(400, 100, Color.black);
+			boxStyle.border.Add(new Rect(2, 2, 2, 2));
+			boxStyle.wordWrap = true;
+			boxStyle.alignment = TextAnchor.MiddleCenter;
+
+			GUI.DrawTexture(new Rect(halfScreenWidth - 200, halfScreenHeight - 182, 128, 128), enemyIcons[enemyId]);
+
+			GUI.Box (new Rect (halfScreenWidth - 200, halfScreenHeight - 50, 400, 100), enemyDescriptions[enemyId], boxStyle);
+
+			if(GUI.Button(new Rect(halfScreenWidth + 100, halfScreenHeight + 55, 100, 40), "Okay."))
+			{
+				HideEnemyDescription();
+			}
+
+		}
 	}
 
 	//actual spawning routine, responsible for spawning one type of creep only

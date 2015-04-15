@@ -1206,6 +1206,14 @@ Prefab:
       propertyPath: nextLevel
       value: Menu
       objectReference: {fileID: 0}
+    - target: {fileID: 11400002, guid: 31a92058ac036734e9107651b8cb9c17, type: 2}
+      propertyPath: resourceLabel
+      value: Available CPU
+      objectReference: {fileID: 0}
+    - target: {fileID: 11400002, guid: 31a92058ac036734e9107651b8cb9c17, type: 2}
+      propertyPath: spawnManager
+      value: 
+      objectReference: {fileID: 2030152288}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: 31a92058ac036734e9107651b8cb9c17, type: 2}
   m_IsPrefabParent: 0
@@ -1349,7 +1357,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   playerLife: 10
-  playerResource: 40
+  playerResource: 400
   sellTowerRefundRatio: .5
   layerManager: {fileID: 1285559547}
   spawnManager: {fileID: 2030152288}
@@ -2053,6 +2061,21 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   spawnMode: 1
   defaultPath: {fileID: 1907938631}
+  enemyDescriptions:
+  - Spam Mail can be a threat to computer systems as it will often contain harmful
+    malware embedded in attachments, or links to phishing sites. Most Spam Mail will
+    be sent from a bot immitating an email that you recognise. Weak against SpamFilters.
+  - Viruses are used to infiltrate a computer system, often embedded in spam mail,
+    intent on causing damage to the system. This could include corrupting sensitive
+    data, transmitting data back to the author or crashing critical systems. Weak
+    against antivirus software.
+  - DDOS attacks are used to overwhelm a computer system or network with high amounts
+    of traffic, with the intention to cause disruption and outage of the network.
+    Weak against firewalls.
+  enemyIcons:
+  - {fileID: 2800000, guid: ada3a6cd5281097449ae09f38342a3b3, type: 3}
+  - {fileID: 2800000, guid: 187b77f3dc30a884aa1954d7f982254e, type: 3}
+  - {fileID: 2800000, guid: 59eef52703bcc58489cb41bb742beada, type: 3}
   waves:
   - subWaves:
     - unit: {fileID: 100004, guid: 5f549301f44c664469c40fdd35a9069d, type: 2}
@@ -2120,6 +2143,7 @@ MonoBehaviour:
     activeUnitCount: 0
     spawned: 0
     cleared: 0
+  totalSpawnCount: 0
 --- !u!1 &2046706441
 GameObject:
   m_ObjectHideFlags: 0
