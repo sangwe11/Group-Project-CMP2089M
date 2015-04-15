@@ -11,8 +11,12 @@ public class CameraControl : MonoBehaviour {
 	//public _Platform platform;
 
 	public bool rotation = true;
-	public float panSpeed=5;
-	public float zoomSpeed=5;
+	public bool panning = true;
+	public bool zooming = true;
+
+	public float rotationSpeed = 5;
+	public float panSpeed = 5;
+	public float zoomSpeed = 5;
 	
 	private float initialMousePosX;
 	private float initialMousePosY;
@@ -27,11 +31,11 @@ public class CameraControl : MonoBehaviour {
 	public float minPosZ=-10;
 	public float maxPosZ=10;
 	
-	public float minRadius=8;
-	public float maxRadius=30;
+	public float minZoom=8;
+	public float maxZoom=30;
 	
-	public float minRotateAngle=10;
-	public float maxRotateAngle=89;
+	public float minRotation=10;
+	public float maxRotation=89;
 
 	//calculated deltaTime based on timeScale so camera movement speed always remain constant
 	private float deltaT;
@@ -47,10 +51,10 @@ public class CameraControl : MonoBehaviour {
 	
 	// Use this for initialization
 	void Start () {
-		minRotateAngle=Mathf.Max(10, minRotateAngle);
-		maxRotateAngle=Mathf.Min(89, maxRotateAngle);
+		//minRotation=Mathf.Max(10, minRotation);
+		//maxRotation=Mathf.Min(89, maxRotation);
 		
-		minRadius=Mathf.Max(1, minRadius);
+		minZoom=Mathf.Max(1, minZoom);
 	}
 	
 	// Update is called once per frame
@@ -81,13 +85,13 @@ public class CameraControl : MonoBehaviour {
 			float y=rotY+initialRotY;
 			
 			//limit the rotation
-			if(y>maxRotateAngle){
-				initialRotY-=(rotY+initialRotY)-maxRotateAngle;
-				y=maxRotateAngle;
+			if(y>maxRotation){
+				initialRotY-=(rotY+initialRotY)-maxRotation;
+				y=maxRotation;
 			}
-			else if(y<minRotateAngle){
-				initialRotY+=minRotateAngle-(rotY+initialRotY);
-				y=minRotateAngle;
+			else if(y<minRotation){
+				initialRotY+=minRotation-(rotY+initialRotY);
+				y=minRotation;
 			}
 			
 			thisT.rotation=Quaternion.Euler(y, rotX+initialRotX, 0);
@@ -96,26 +100,32 @@ public class CameraControl : MonoBehaviour {
 		
 		Quaternion direction=Quaternion.Euler(0, thisT.eulerAngles.y, 0);
 		
-		if(Input.GetButton("Horizontal")) {
+		if(Input.GetButton("Vertical") && panning) {
 			Vector3 dir=transform.InverseTransformDirection(direction*Vector3.right);
-			thisT.Translate (dir * panSpeed * deltaT * Input.GetAxisRaw("Horizontal"));
+			thisT.Translate (dir * panSpeed * deltaT * Input.GetAxisRaw("Vertical"));
 		}
 
-		if(Input.GetButton("Vertical")) {
+		if(Input.GetButton("Horizontal") && panning) {
 			Vector3 dir=transform.InverseTransformDirection(direction*Vector3.forward);
-			thisT.Translate (dir * panSpeed * deltaT * Input.GetAxisRaw("Vertical"));
+			thisT.Translate (dir * panSpeed * deltaT * Input.GetAxisRaw("Horizontal") * -1.0f);
 		}
 		
 		//cam.Translate(Vector3.forward*zoomSpeed*Input.GetAxis("Mouse ScrollWheel"));
 		
-		if(Input.GetAxis("Mouse ScrollWheel")<0){
-			if(Vector3.Distance(cam.position, thisT.position)<maxRadius){
-				cam.Translate(Vector3.forward*zoomSpeed*Input.GetAxis("Mouse ScrollWheel"));
+		if(Input.GetAxis("Mouse ScrollWheel") < 0 && zooming){
+
+			Debug.Log(Vector3.Distance(cam.position, thisT.position));
+
+			if(Vector3.Distance(cam.position, thisT.position) < maxZoom){
+				cam.Translate(Vector3.forward*zoomSpeed*Input.GetAxis("Mouse ScrollWheel") * -1.0f);
 			}
 		}
-		else if(Input.GetAxis("Mouse ScrollWheel")>0){
-			if(Vector3.Distance(cam.position, thisT.position)>minRadius){
-				cam.Translate(Vector3.forward*zoomSpeed*Input.GetAxis("Mouse ScrollWheel"));
+		else if(Input.GetAxis("Mouse ScrollWheel") > 0 && zooming){
+
+				Debug.Log(Vector3.Distance(cam.position, thisT.position));
+
+			if(Vector3.Distance(cam.position, thisT.position) > minZoom){
+				cam.Translate(Vector3.forward*zoomSpeed*Input.GetAxis("Mouse ScrollWheel") * -1.0f);
 			}
 		}
 		
@@ -123,11 +133,11 @@ public class CameraControl : MonoBehaviour {
 		
 		#endif
 		
-		//float x=Mathf.Clamp(thisT.position.x, minPosX, maxPosX);
-		//float z=Mathf.Clamp(thisT.position.z, minPosZ, maxPosZ);
+		float x=Mathf.Clamp(thisT.position.x, minPosX, maxPosX);
+		float z=Mathf.Clamp(thisT.position.z, minPosZ, maxPosZ);
 		//float y=Mathf.Clamp(thisT.position.y, verticalLimitBottom, verticalLimitTop);
 		
-		//thisT.position=new Vector3(x, thisT.position.y, z);
+		thisT.position=new Vector3(x, thisT.position.y, z);
 		
 	}
 	
