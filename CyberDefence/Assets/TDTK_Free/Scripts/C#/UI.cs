@@ -4,11 +4,15 @@ using System.Collections;
 
 public class UI : MonoBehaviour {
 
+	public SpawnManager spawnManager;
+
 	public enum _BuildMenuType{Fixed, Box, Pie}
 	public _BuildMenuType buildMenuType;
 	
 	public enum _BuildMode{PointNBuild, DragNDrop}
 	public _BuildMode buildMode;
+
+	public string resourceLabel = "Resources";
 	
 	public bool showBuildSample=true;
 	
@@ -382,8 +386,15 @@ public class UI : MonoBehaviour {
 			int resource=GameControl.GetResourceVal();
 			float subStartX=10; float subStartY=0;
 			
-			GUI.Label(new Rect(subStartX, subStartY+2, 250f, 25f), "Resource: "+resource.ToString());
-			subStartX+=70;
+		GUI.Label(new Rect(subStartX, subStartY+2, 250, 25), resourceLabel + ": " + resource.ToString());
+
+		subStartX+= 300;
+
+		int currentWave = SpawnManager.GetCurrentWave ();
+
+		if(currentWave > 0)
+			GUI.Label (new Rect (Screen.width - 150, subStartY + 2, 150, 25), "Enemies remaining: " + spawnManager.waves[currentWave - 1].activeUnitCount.ToString());
+
 		GUI.EndGroup ();
 		
 		
@@ -481,7 +492,7 @@ public class UI : MonoBehaviour {
 		//if game message is not empty, show the game message.
 		//shift the text alignment to LowerRight first then back to UpperLeft after the message
 		if(gameMessage!=""){
-			GUI.skin.label.alignment=TextAnchor.LowerRight;
+			GUI.skin.label.alignment=TextAnchor.LowerCenter;
 			GUI.Label(new Rect(0, 0, Screen.width-5, Screen.height+12), gameMessage);
 			GUI.skin.label.alignment=TextAnchor.UpperLeft;
 		}
@@ -551,7 +562,7 @@ public class UI : MonoBehaviour {
 			//show tower's cost
 			//get the resourceList from GameControl so we have all the information
 			int[] rsc=tower.GetCost();
-			GUI.Label(new Rect(5, 5+heightT, 150, 25), " - "+rsc[0].ToString()+"resource");
+			GUI.Label(new Rect(5, 5+heightT, 150, 25), " -" + rsc[0].ToString() + " " +resourceLabel);
 			
 			//show desciption
 			GUI.Label(new Rect(5, 5+heightC+heightT, 150, heightD), guiContent);
@@ -865,7 +876,7 @@ public class UI : MonoBehaviour {
 		if(upgradable){
 			if(GUI.Button(new Rect(startX, startY, 100, 30), new GUIContent("Upgrade", "1"))){
 				//upgrade the tower, if false is return, player have insufficient fund
-				if(!currentSelectedTower.Upgrade()) Debug.Log("Insufficient Resource");
+				if(!currentSelectedTower.Upgrade()) Debug.Log("Insufficient " + " " + resourceLabel);
 			}
 		}
 		//sell button
@@ -879,13 +890,13 @@ public class UI : MonoBehaviour {
 		if(GUI.tooltip=="1"){
 			
 			int[] cost=currentSelectedTower.GetCost();
-			GUI.Label(new Rect(startX+10, startY, 150, 25), " - "+cost[0].ToString()+"resource");
+			GUI.Label(new Rect(startX+10, startY, 150, 25), " -" +cost[0].ToString() + " " + resourceLabel);
 			
 		}
 		//if the cursor is hover on the sell button, show the resource gain
 		else if(GUI.tooltip=="2"){
 			int[] sellValue=currentSelectedTower.GetTowerSellValue();
-			GUI.Label(new Rect(startX+120, startY, 150, 25), " + "+sellValue[0].ToString()+"resource");
+			GUI.Label(new Rect(startX+120, startY, 150, 25), " +" + sellValue[0].ToString() + " " + resourceLabel);
 		}
 	}
 	

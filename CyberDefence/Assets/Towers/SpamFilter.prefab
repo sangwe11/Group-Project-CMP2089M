@@ -213,7 +213,9 @@ MonoBehaviour:
   targetMode: 2
   targetPriority: 1
   levelCap: 1
-  description: Short range and high firing rate.
+  description: The Spam Filter is primarily used to combat email spam. This is done
+    by junking/deleting suspicious emails that may contain harmful software such as
+    malware / phishing links. Only effective against SpamMail.
   baseStat:
     cost: 10
     costs: 0a000000

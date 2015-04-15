@@ -184,7 +184,9 @@ MonoBehaviour:
   targetMode: 1
   targetPriority: 2
   levelCap: 1
-  description: This blocks of text here should give a brief description of this tower.
+  description: The Firewall prevents unauthorised access to computer systems by securing
+    / closing unused ports and by monitoring incoming and outgoing traffic for suspisious
+    activity. Only effective against DDOS.
   baseStat:
     cost: 300
     costs: 2c010000

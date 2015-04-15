@@ -213,7 +213,9 @@ MonoBehaviour:
   targetMode: 0
   targetPriority: 0
   levelCap: 1
-  description: Beam Tower. Causing damage over time on target.
+  description: AntiVirus Software is used to prevent malware from accessing your PC.
+    It does this by scanning all incoming/existing files for threats. Only effective
+    against Viruses.
   baseStat:
     cost: 40
     costs: 28000000
