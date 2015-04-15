@@ -100,8 +100,8 @@ public class BuildManager : MonoBehaviour {
 			if(autoAdjstTextureToGrid){
 				Material mat=basePlane.GetComponent<Renderer>().material;
 				
-				float x=(UnitUtility.GetWorldScale(basePlane).x*10f)/gridSize;
-				float z=(UnitUtility.GetWorldScale(basePlane).z*10f)/gridSize;
+				float x=((UnitUtility.GetWorldScale(basePlane).x*10f)/gridSize) / basePlane.GetComponent<Platform>().textureTiling.x;
+				float z=((UnitUtility.GetWorldScale(basePlane).z*10f)/gridSize) / basePlane.GetComponent<Platform>().textureTiling.x;
 				
 				mat.mainTextureOffset=new Vector2(0.0f, 0.0f);
 				mat.mainTextureScale=new Vector2(x, z);

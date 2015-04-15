@@ -10,6 +10,7 @@ public class CameraControl : MonoBehaviour {
 	//public enum _Platform{Hybird, Mouse&Keyboard, Touch}
 	//public _Platform platform;
 
+	public bool rotation = true;
 	public float panSpeed=5;
 	public float zoomSpeed=5;
 	
@@ -69,7 +70,7 @@ public class CameraControl : MonoBehaviour {
 			initialRotY=thisT.eulerAngles.x;
 		}
 
-		if(Input.GetMouseButton(1)){
+		if(Input.GetMouseButton(1) && rotation){
 			float deltaX=Input.mousePosition.x-initialMousePosX;
 			float deltaRotX=(.1f*(initialRotX/Screen.width));
 			float rotX=deltaX+deltaRotX;
@@ -122,11 +123,11 @@ public class CameraControl : MonoBehaviour {
 		
 		#endif
 		
-		float x=Mathf.Clamp(thisT.position.x, minPosX, maxPosX);
-		float z=Mathf.Clamp(thisT.position.z, minPosZ, maxPosZ);
+		//float x=Mathf.Clamp(thisT.position.x, minPosX, maxPosX);
+		//float z=Mathf.Clamp(thisT.position.z, minPosZ, maxPosZ);
 		//float y=Mathf.Clamp(thisT.position.y, verticalLimitBottom, verticalLimitTop);
 		
-		thisT.position=new Vector3(x, thisT.position.y, z);
+		//thisT.position=new Vector3(x, thisT.position.y, z);
 		
 	}
 	
