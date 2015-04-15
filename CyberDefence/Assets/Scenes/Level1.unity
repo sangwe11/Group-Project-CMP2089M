@@ -1839,8 +1839,8 @@ Transform:
   m_PrefabParentObject: {fileID: 0}
   m_PrefabInternal: {fileID: 0}
   m_GameObject: {fileID: 1793262727}
-  m_LocalRotation: {x: -2.63576894e-08, y: -1.64713228e-07, z: -.707105994, w: .707107604}
-  m_LocalPosition: {x: -1.60000002, y: -.699999988, z: -19.7999992}
+  m_LocalRotation: {x: 4.97379915e-14, y: 1.88313948e-07, z: .70710659, w: -.707106948}
+  m_LocalPosition: {x: -1.10000002, y: -1.60000002, z: 12}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 2141782450}
@@ -1865,7 +1865,7 @@ Camera:
   far clip plane: 1000
   field of view: 50
   orthographic: 1
-  orthographic size: 10
+  orthographic size: 8
   m_Depth: -1
   m_CullingMask:
     serializedVersion: 2
@@ -2364,7 +2364,7 @@ Transform:
   m_PrefabParentObject: {fileID: 0}
   m_PrefabInternal: {fileID: 0}
   m_GameObject: {fileID: 2141782449}
-  m_LocalRotation: {x: 1.54333986e-06, y: -.70710665, z: .707106948, w: 1.64657808e-06}
+  m_LocalRotation: {x: -1.15202326e-07, y: .707106709, z: -.707106829, w: -1.15202312e-07}
   m_LocalPosition: {x: 13.6700001, y: 28.3999996, z: -1.10000002}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children:
@@ -2383,14 +2383,17 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   rotation: 0
+  panning: 1
+  zooming: 1
+  rotationSpeed: 5
   panSpeed: 5
   zoomSpeed: 5
-  minPosX: 10
-  maxPosX: 25
-  minPosZ: -8
-  maxPosZ: 3
-  minRadius: 8
-  maxRadius: 30
-  minRotateAngle: 90
-  maxRotateAngle: 90
-  showGizmo: 0
+  minPosX: 11.6700001
+  maxPosX: 15.6700001
+  minPosZ: -3.0999999
+  maxPosZ: .899999976
+  minZoom: 10
+  maxZoom: 15
+  minRotation: 10
+  maxRotation: 89
+  showGizmo: 1
