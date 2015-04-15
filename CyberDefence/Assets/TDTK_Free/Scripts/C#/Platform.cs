@@ -9,6 +9,7 @@ public class Platform : MonoBehaviour {
 	public _TowerType[] buildableType=new _TowerType[1];
 	
 	public int[] specialBuildableID;
+	public Vector2 textureTiling = new Vector2 (1.0f, 1.0f);
 	
 	//indicate if creep can walk pass this platform, true if this platform is part of a path
 	private bool walkable;

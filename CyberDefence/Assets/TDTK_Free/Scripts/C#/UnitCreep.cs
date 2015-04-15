@@ -18,6 +18,8 @@ public class UnitCreep : Unit {
 	
 	public bool flying=false;
 	public float flightHeightOffset=3f;
+
+	public int damage = 1;
 	
 	public int[] value=new int[1];
 	
@@ -242,7 +244,7 @@ public class UnitCreep : Unit {
 	
 	
 	public void Score(){
-		if(onDeductLifeE!=null) onDeductLifeE(1);
+		if(onDeductLifeE!=null) onDeductLifeE(damage);
 		if(scoreEffect!=null) ObjectPoolManager.Spawn(scoreEffect, thisT.position, Quaternion.identity);
 		float duration=PlayScore();
 		
