@@ -103,7 +103,7 @@ public class BuildManager : MonoBehaviour {
 				float x=(UnitUtility.GetWorldScale(basePlane).x*10f)/gridSize;
 				float z=(UnitUtility.GetWorldScale(basePlane).z*10f)/gridSize;
 				
-				mat.mainTextureOffset=new Vector2(0.5f, 0.5f);
+				mat.mainTextureOffset=new Vector2(0.0f, 0.0f);
 				mat.mainTextureScale=new Vector2(x, z);
 			}
 			
@@ -122,13 +122,13 @@ public class BuildManager : MonoBehaviour {
 		if(buildManager.enableTileIndicator){
 			indicator=GameObject.CreatePrimitive(PrimitiveType.Cube);
 			indicator.name="indicator";
-			indicator.active=false;
+			indicator.SetActive(false);
 			indicator.transform.localScale=new Vector3(gridSize, 0.025f, gridSize);
 			indicator.transform.GetComponent<Renderer>().material=(Material)Resources.Load("IndicatorSquare");
 			
 			indicator2=GameObject.CreatePrimitive(PrimitiveType.Cube);
 			indicator2.name="indicator2";
-			indicator2.active=false;
+			indicator2.SetActive(false);
 			indicator2.transform.localScale=new Vector3(gridSize, 0.025f, gridSize);
 			indicator2.transform.GetComponent<Renderer>().material=(Material)Resources.Load("IndicatorSquare");
 			
@@ -150,7 +150,7 @@ public class BuildManager : MonoBehaviour {
 	}
 	
 	static public void ClearIndicator(){
-		if(indicator!=null) indicator.active=false;
+		if(indicator!=null) indicator.SetActive(false);
 	}
 	
 	//called to set indicator to a particular node, set the color as well
@@ -210,7 +210,7 @@ public class BuildManager : MonoBehaviour {
 					
 					
 					
-					indicator2.active=true;
+					indicator2.SetActive(true);
 		
 					indicator2.transform.position=pos;
 					indicator2.transform.rotation=basePlane.rotation;
@@ -225,7 +225,7 @@ public class BuildManager : MonoBehaviour {
 				}
 			}
 		}
-		else indicator2.active=false;
+		else indicator2.SetActive(false);
 	}
 	
 	
@@ -311,7 +311,7 @@ public class BuildManager : MonoBehaviour {
 		currentBuildInfo=buildableInfo;
 		
 		if(buildManager.enableTileIndicator){
-			indicator.active=true;
+			indicator.SetActive(true);
 			indicator.transform.position=currentBuildInfo.position;
 			indicator.transform.rotation=currentBuildInfo.platform.thisT.rotation;
 		}
@@ -373,7 +373,7 @@ public class BuildManager : MonoBehaviour {
 					break;
 				}
 			}
-			buildManager.sampleTower[ID].thisObj.SetActiveRecursively(true);
+			buildManager.sampleTower[ID].thisObj.SetActive(true);
 			GameControl.ShowIndicator(buildManager.sampleTower[ID]);
 			UnitTower towerCom=buildManager.sampleTower[ID];
 			towerCom.StartCoroutine(towerCom.DragNDropRoutine(!buildManager.retainPrefabShaderForSamples));
@@ -462,7 +462,7 @@ public class BuildManager : MonoBehaviour {
 			
 			if(towerObj.GetComponent<Collider>()!=null) Destroy(towerObj.GetComponent<Collider>());
 			UnitUtility.DestroyColliderRecursively(towerObj.transform);
-			towerObj.SetActiveRecursively(false);
+			towerObj.SetActive(false);
 			
 			//UnitUtility.SetAdditiveMatColorRecursively(towerObj.transform, Color.green);
 		}
@@ -493,7 +493,7 @@ public class BuildManager : MonoBehaviour {
 		
 		currentSampleID=ID;
 		sampleTower[ID].thisT.position=currentBuildInfo.position;
-		sampleTower[ID].thisObj.SetActiveRecursively(true);
+		sampleTower[ID].thisObj.SetActive(true);
 		GameControl.ShowIndicator(sampleTower[ID]);
 	}
 	
@@ -503,7 +503,7 @@ public class BuildManager : MonoBehaviour {
 	public void _ClearSampleTower(){
 		if(currentSampleID<0) return;
 		
-		sampleTower[currentSampleID].thisObj.SetActiveRecursively(false);
+		sampleTower[currentSampleID].thisObj.SetActive(false);
 		GameControl.ClearIndicator();
 		currentSampleID=-1;
 	}

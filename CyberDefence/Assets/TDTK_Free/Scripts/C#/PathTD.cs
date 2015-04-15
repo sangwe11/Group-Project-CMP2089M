@@ -4,7 +4,10 @@ using System.Collections.Generic;
 
 public class PathTD : MonoBehaviour {
 
-	
+
+	public Material pathMaterial;
+	public GameObject pathIndicatorNode;
+
 	public Transform[] waypoints;
 	
 	public bool generatePathObject=true;
@@ -37,7 +40,7 @@ public class PathTD : MonoBehaviour {
 				objT.parent=thisT;
 				
 				LineRenderer line=obj.AddComponent<LineRenderer>();
-				line.material=(Material)Resources.Load("PathMaterial");
+				line.material= pathMaterial;
 				line.SetWidth(0.3f, 0.3f);
 				
 				line.SetPosition(0, waypoints[i-1].position+offsetPos);
@@ -45,7 +48,7 @@ public class PathTD : MonoBehaviour {
 		}
 		
 		for(int i=1; i<waypoints.Length-1; i++){
-			GameObject obj=(GameObject)Instantiate((GameObject)Resources.Load("wpNode"), waypoints[i].position+offsetPos, Quaternion.identity);
+			GameObject obj=(GameObject)Instantiate(pathIndicatorNode, waypoints[i].position+offsetPos, Quaternion.identity);
 			obj.transform.parent=transform;
 		}
 		
