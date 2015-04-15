@@ -1357,7 +1357,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   playerLife: 10
-  playerResource: 400
+  playerResource: 40
   sellTowerRefundRatio: .5
   layerManager: {fileID: 1285559547}
   spawnManager: {fileID: 2030152288}
