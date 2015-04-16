@@ -251,16 +251,19 @@ public class UI : MonoBehaviour {
 		
 		tempRect=buildListRect;
 		tempRect.y=Screen.height-tempRect.y-tempRect.height;
-		if(tempRect.Contains(point)) return true;
+		if(tempRect.Contains(point) && buildMenu) return true;
 		
 		tempRect=towerUIRect;
 		tempRect.y=Screen.height-tempRect.y-tempRect.height;
-		if(tempRect.Contains(point)) return true;
-		
-		for(int i=0; i<scatteredRectList.Length; i++){
-			tempRect=scatteredRectList[i];
-			tempRect.y=Screen.height-tempRect.y-tempRect.height;
-			if(tempRect.Contains(point)) return true;
+		if(tempRect.Contains(point) && currentSelectedTower != null) return true;
+
+		if (buildMenu) {
+			for (int i=0; i<scatteredRectList.Length; i++) {
+				tempRect = scatteredRectList [i];
+				tempRect.y = Screen.height - tempRect.y - tempRect.height;
+				if (tempRect.Contains (point))
+					return true;
+			}
 		}
 		
 		return false;
