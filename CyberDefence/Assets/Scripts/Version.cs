@@ -8,7 +8,7 @@ public class Version : MonoBehaviour {
 		var centeredStyle = new GUIStyle(GUI.skin.label);
 		centeredStyle.alignment = TextAnchor.MiddleCenter;
 
-		GUI.Label(new Rect(Screen.width/2 - (450 / 2), Screen.height-75, 450, 25), "by Jack Laurel, Gary Sangwell, Chris Ingram, Tom Kellet and Ryan Docherty.", centeredStyle);
+		GUI.Label(new Rect(Screen.width/2 - (450 / 2), Screen.height-75, 460, 25), "by Jack Laurel, Gary Sangwell, Chris Ingram, Tom Kellett and Ryan Docherty.", centeredStyle);
 		GUI.Label(new Rect(Screen.width/2 - (450 / 2), Screen.height-50, 450, 25), "TDTK Free version 1.0 by K.SongTan", centeredStyle);
 	}
 }
