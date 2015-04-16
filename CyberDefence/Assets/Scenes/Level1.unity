@@ -162,11 +162,11 @@ Prefab:
     - {fileID: 11400000, guid: 5d5fbcf1dc48f1643916cdc2ee9503a0, type: 2}
   m_ParentPrefab: {fileID: 100100000, guid: 5d5fbcf1dc48f1643916cdc2ee9503a0, type: 2}
   m_IsPrefabParent: 0
---- !u!4 &123094881
+--- !u!4 &123094881 stripped
 Transform:
   m_PrefabParentObject: {fileID: 400000, guid: 5d5fbcf1dc48f1643916cdc2ee9503a0, type: 2}
   m_PrefabInternal: {fileID: 123094880}
---- !u!1 &123094882
+--- !u!1 &123094882 stripped
 GameObject:
   m_PrefabParentObject: {fileID: 100000, guid: 5d5fbcf1dc48f1643916cdc2ee9503a0, type: 2}
   m_PrefabInternal: {fileID: 123094880}
@@ -261,7 +261,7 @@ Prefab:
     - {fileID: 11400000, guid: 5d5fbcf1dc48f1643916cdc2ee9503a0, type: 2}
   m_ParentPrefab: {fileID: 100100000, guid: 5d5fbcf1dc48f1643916cdc2ee9503a0, type: 2}
   m_IsPrefabParent: 0
---- !u!1 &321289375
+--- !u!1 &321289375 stripped
 GameObject:
   m_PrefabParentObject: {fileID: 100000, guid: 5d5fbcf1dc48f1643916cdc2ee9503a0, type: 2}
   m_PrefabInternal: {fileID: 1622800300}
@@ -281,7 +281,7 @@ MonoBehaviour:
   textureTiling: {x: 1, y: 1}
   thisObj: {fileID: 0}
   thisT: {fileID: 0}
---- !u!4 &321289380
+--- !u!4 &321289380 stripped
 Transform:
   m_PrefabParentObject: {fileID: 400000, guid: 5d5fbcf1dc48f1643916cdc2ee9503a0, type: 2}
   m_PrefabInternal: {fileID: 1622800300}
@@ -459,7 +459,7 @@ MeshFilter:
   m_PrefabInternal: {fileID: 0}
   m_GameObject: {fileID: 340624530}
   m_Mesh: {fileID: 10202, guid: 0000000000000000e000000000000000, type: 0}
---- !u!1 &344787919
+--- !u!1 &344787919 stripped
 GameObject:
   m_PrefabParentObject: {fileID: 100000, guid: 5d5fbcf1dc48f1643916cdc2ee9503a0, type: 2}
   m_PrefabInternal: {fileID: 333693065}
@@ -479,7 +479,7 @@ MonoBehaviour:
   textureTiling: {x: 1, y: 1}
   thisObj: {fileID: 0}
   thisT: {fileID: 0}
---- !u!4 &344787924
+--- !u!4 &344787924 stripped
 Transform:
   m_PrefabParentObject: {fileID: 400000, guid: 5d5fbcf1dc48f1643916cdc2ee9503a0, type: 2}
   m_PrefabInternal: {fileID: 333693065}
@@ -558,11 +558,11 @@ Prefab:
     - {fileID: 11400000, guid: 5d5fbcf1dc48f1643916cdc2ee9503a0, type: 2}
   m_ParentPrefab: {fileID: 100100000, guid: 5d5fbcf1dc48f1643916cdc2ee9503a0, type: 2}
   m_IsPrefabParent: 0
---- !u!4 &348284801
+--- !u!4 &348284801 stripped
 Transform:
   m_PrefabParentObject: {fileID: 400000, guid: 5d5fbcf1dc48f1643916cdc2ee9503a0, type: 2}
   m_PrefabInternal: {fileID: 348284800}
---- !u!1 &348284802
+--- !u!1 &348284802 stripped
 GameObject:
   m_PrefabParentObject: {fileID: 100000, guid: 5d5fbcf1dc48f1643916cdc2ee9503a0, type: 2}
   m_PrefabInternal: {fileID: 348284800}
@@ -945,11 +945,11 @@ Prefab:
     - {fileID: 11400000, guid: 5d5fbcf1dc48f1643916cdc2ee9503a0, type: 2}
   m_ParentPrefab: {fileID: 100100000, guid: 5d5fbcf1dc48f1643916cdc2ee9503a0, type: 2}
   m_IsPrefabParent: 0
---- !u!4 &821435699
+--- !u!4 &821435699 stripped
 Transform:
   m_PrefabParentObject: {fileID: 400000, guid: 5d5fbcf1dc48f1643916cdc2ee9503a0, type: 2}
   m_PrefabInternal: {fileID: 821435698}
---- !u!1 &821435700
+--- !u!1 &821435700 stripped
 GameObject:
   m_PrefabParentObject: {fileID: 100000, guid: 5d5fbcf1dc48f1643916cdc2ee9503a0, type: 2}
   m_PrefabInternal: {fileID: 821435698}
@@ -1127,11 +1127,11 @@ Light:
   m_ShadowRadius: 0
   m_ShadowAngle: 0
   m_AreaSize: {x: 1, y: 1}
---- !u!1 &875545612
+--- !u!1 &875545612 stripped
 GameObject:
   m_PrefabParentObject: {fileID: 100000, guid: 5d5fbcf1dc48f1643916cdc2ee9503a0, type: 2}
   m_PrefabInternal: {fileID: 1258369150}
---- !u!4 &875545613
+--- !u!4 &875545613 stripped
 Transform:
   m_PrefabParentObject: {fileID: 400000, guid: 5d5fbcf1dc48f1643916cdc2ee9503a0, type: 2}
   m_PrefabInternal: {fileID: 1258369150}
@@ -1214,14 +1214,18 @@ Prefab:
       propertyPath: spawnManager
       value: 
       objectReference: {fileID: 2030152288}
+    - target: {fileID: 11400002, guid: 31a92058ac036734e9107651b8cb9c17, type: 2}
+      propertyPath: lifeLabel
+      value: System Integrity
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: 31a92058ac036734e9107651b8cb9c17, type: 2}
   m_IsPrefabParent: 0
---- !u!1 &1200653953
+--- !u!1 &1200653953 stripped
 GameObject:
   m_PrefabParentObject: {fileID: 100000, guid: 5d5fbcf1dc48f1643916cdc2ee9503a0, type: 2}
   m_PrefabInternal: {fileID: 807690494}
---- !u!4 &1200653954
+--- !u!4 &1200653954 stripped
 Transform:
   m_PrefabParentObject: {fileID: 400000, guid: 5d5fbcf1dc48f1643916cdc2ee9503a0, type: 2}
   m_PrefabInternal: {fileID: 807690494}
@@ -1444,11 +1448,11 @@ Transform:
   m_Children: []
   m_Father: {fileID: 821435699}
   m_RootOrder: 0
---- !u!1 &1374037021
+--- !u!1 &1374037021 stripped
 GameObject:
   m_PrefabParentObject: {fileID: 100000, guid: 5d5fbcf1dc48f1643916cdc2ee9503a0, type: 2}
   m_PrefabInternal: {fileID: 189113338}
---- !u!4 &1374037022
+--- !u!4 &1374037022 stripped
 Transform:
   m_PrefabParentObject: {fileID: 400000, guid: 5d5fbcf1dc48f1643916cdc2ee9503a0, type: 2}
   m_PrefabInternal: {fileID: 189113338}
@@ -1966,7 +1970,7 @@ MonoBehaviour:
   - {fileID: 786040943}
   - {fileID: 2046706442}
   generatePathObject: 1
-  showGizmo: 1
+  showGizmo: 0
 --- !u!114 &1907938632
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -2070,7 +2074,7 @@ MonoBehaviour:
     data, transmitting data back to the author or crashing critical systems. Weak
     against antivirus software.
   - DDOS attacks are used to overwhelm a computer system or network with high amounts
-    of traffic, with the intention to cause disruption and outage of the network.
+    of traffic, with the intention to cause disruption or complete outage of the network.
     Weak against firewalls.
   enemyIcons:
   - {fileID: 2800000, guid: ada3a6cd5281097449ae09f38342a3b3, type: 3}
@@ -2243,7 +2247,7 @@ MeshFilter:
   m_PrefabInternal: {fileID: 0}
   m_GameObject: {fileID: 2062937448}
   m_Mesh: {fileID: 10202, guid: 0000000000000000e000000000000000, type: 0}
---- !u!1 &2095652075
+--- !u!1 &2095652075 stripped
 GameObject:
   m_PrefabParentObject: {fileID: 100000, guid: 5d5fbcf1dc48f1643916cdc2ee9503a0, type: 2}
   m_PrefabInternal: {fileID: 737711013}
@@ -2263,7 +2267,7 @@ MonoBehaviour:
   textureTiling: {x: 1, y: 1}
   thisObj: {fileID: 0}
   thisT: {fileID: 0}
---- !u!4 &2095652080
+--- !u!4 &2095652080 stripped
 Transform:
   m_PrefabParentObject: {fileID: 400000, guid: 5d5fbcf1dc48f1643916cdc2ee9503a0, type: 2}
   m_PrefabInternal: {fileID: 737711013}

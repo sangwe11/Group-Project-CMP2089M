@@ -32,7 +32,6 @@ public class PathIndicator : MonoBehaviour {
 		
 		Transform[] waypoints=path.GetPath();
 
-		
 		while(true){
 			
 			float dist=Vector3.Distance(waypoints[wpCounter].position, indicatorT.position);
@@ -49,7 +48,7 @@ public class PathIndicator : MonoBehaviour {
 				}
 			}
 			
-			if(thisStep>0){
+			if(thisStep>0 && Time.timeScale > 0){
 				//rotate towards destination
 				Vector3 pos=new Vector3(waypoints[wpCounter].position.x, waypoints[wpCounter].position.y, waypoints[wpCounter].position.z);
 				Vector3 dir=pos-indicatorT.position;
