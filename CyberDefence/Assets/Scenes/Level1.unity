@@ -2074,7 +2074,7 @@ MonoBehaviour:
     data, transmitting data back to the author or crashing critical systems. Weak
     against antivirus software.
   - DDOS attacks are used to overwhelm a computer system or network with high amounts
-    of traffic, with the intention to cause disruption and outage of the network.
+    of traffic, with the intention to cause disruption or complete outage of the network.
     Weak against firewalls.
   enemyIcons:
   - {fileID: 2800000, guid: ada3a6cd5281097449ae09f38342a3b3, type: 3}
