@@ -13,6 +13,7 @@ public class UI : MonoBehaviour {
 	public _BuildMode buildMode;
 
 	public string resourceLabel = "Resources";
+	public string lifeLabel = "Life";
 	
 	public bool showBuildSample=true;
 	
@@ -369,7 +370,7 @@ public class UI : MonoBehaviour {
 			buttonX+=130;
 			
 			//draw life and wave infomation
-			GUI.Label(new Rect(200, 5, 100, 30), "Life: "+GameControl.GetPlayerLife());
+			GUI.Label(new Rect(200, 5, 250, 30), lifeLabel + ": "+GameControl.GetPlayerLife() * 10 + "%");
 			GUI.Label(new Rect(200+(topPanelRect.width-35-buttonX)/2, 5, 100, 30), "Wave: "+SpawnManager.GetCurrentWave()+"/"+SpawnManager.GetTotalWave());
 			
 			//pause button
