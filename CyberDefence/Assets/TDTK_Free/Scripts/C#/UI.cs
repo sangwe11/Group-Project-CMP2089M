@@ -144,6 +144,10 @@ public class UI : MonoBehaviour {
 			if(buildMode==_BuildMode.PointNBuild)
 				BuildManager.SetIndicator(Input.mousePosition);
 		#endif
+
+		if(paused)
+			Time.timeScale=0;
+
 		
 		if(Input.GetMouseButtonUp(0) && !IsCursorOnUI(Input.mousePosition) && !paused){
 			
